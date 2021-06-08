@@ -1,0 +1,38 @@
+<!-- 
+An HTML table is built with the following tag structure:
+
+<table>
+  <tr>
+    <th>name</th>
+    <th>height</th>
+    <th>place</th>
+  </tr>
+  <tr>
+    <td>Kilimanjaro</td>
+    <td>5895</td>
+    <td>Tanzania</td>
+  </tr>
+</table>
+For each row, the <table> tag contains a <tr> tag. Inside of these <tr> tags, 
+we can put cell elements: either heading cells (<th>) or regular cells (<td>).
+
+ -->
+
+<h1>Mountains</h1>
+<style>
+  table,
+  th,
+  tr,
+  td {
+    border: 1px solid brown;
+  }
+  th,
+  td {
+    padding: 0.5rem 1rem;
+  }
+  th {
+    text-align: center;
+  }
+</style>
+<div id="mountains"></div>
+<script src="script.js" async defer></script>
