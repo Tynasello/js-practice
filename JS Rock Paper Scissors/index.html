@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JavaScript 🪨📄✂️ </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="#">
+    <script src="https://kit.fontawesome.com/4991e1abeb.js" crossorigin="anonymous"></script>
+    <script src="script.js" async defer></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="title">
+            <h1> JavaScript <i class="fab fa-js-square"></i> <br> Rock Paper Scissors </h1>
+            <hr>
+        </div>
+        <div id="moves">
+            <div class="move" move-id="rock">
+                <i class="far fa-hand-rock"></i>
+            </div>
+
+            <div class="move" move-id="paper">
+                <i class="far fa-paper-plane"></i>
+            </div>
+
+            <div class="move" move-id="scissors">
+                <i class="far fa-hand-scissors"></i>
+            </div>
+        </div>
+
+        <div id="score">
+            <h3 id="player-score-h" class="score"></h3>
+            <h3 id="computer-score-h" class="score"></h3>
+        </div>
+
+        <div id="round-result">
+            <div id="computers-selection" class="round-description-box">
+                <h3>Computer's Selection</h3>
+                <hr>
+                <i id="computer-selection-icon" class=""></i>
+            </div>
+            <div id="score" class=" round-description-box">
+                <h3>Round Result</h3>
+                <hr>
+                <div id="scores">
+                    Your Score: <span id="player-score">0</span> | Computer's Score: <span id="computer-score">0</span>
+                </div>
+                <hr>
+                <p id="p-round-descrition"></p>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

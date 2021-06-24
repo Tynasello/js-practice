@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JavaScript Drum Kit</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mate+SC&family=Ubuntu:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="#" />
+    <script
+      src="https://kit.fontawesome.com/4991e1abeb.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="title">
+        <h1>Drum Kit made with JavaScript <i class="fab fa-js-square"></i></h1>
+      </div>
+
+      <div id="keys">
+        <div id="65" class="key">
+          <kbd>A</kbd>
+          <div class="sound">clap</div>
+        </div>
+        <div id="83" class="key">
+          <kbd>S</kbd>
+          <div class="sound">hihat</div>
+        </div>
+        <div id="68" class="key">
+          <kbd>D</kbd>
+          <div class="sound">kick</div>
+        </div>
+        <div id="70" class="key">
+          <kbd>F</kbd>
+          <div class="sound">openhat</div>
+        </div>
+        <div id="71" class="key">
+          <kbd>G</kbd>
+          <div class="sound">boom</div>
+        </div>
+        <div id="72" class="key">
+          <kbd>H</kbd>
+          <div class="sound">ride</div>
+        </div>
+        <div id="74" class="key">
+          <kbd>J</kbd>
+          <div class="sound">snare</div>
+        </div>
+        <div id="75" class="key">
+          <kbd>K</kbd>
+          <div class="sound">tom</div>
+        </div>
+        <div id="76" class="key">
+          <kbd>L</kbd>
+          <div class="sound">tink</div>
+        </div>
+      </div>
+    </div>
+
+    <audio src="./Audio Files/clap.wav" class="65"></audio>
+    <audio src="./Audio Files/hihat.wav" class="83"></audio>
+    <audio src="./Audio Files/kick.wav" class="68"></audio>
+    <audio src="./Audio Files/openhat.wav" class="70"></audio>
+    <audio src="./Audio Files/boom.wav" class="71"></audio>
+    <audio src="./Audio Files/ride.wav" class="72"></audio>
+    <audio src="./Audio Files/snare.wav" class="74"></audio>
+    <audio src="./Audio Files/tom.wav" class="75"></audio>
+    <audio src="./Audio Files/tink.wav" class="76"></audio>
+
+    <script src="main.js" async defer></script>
+  </body>
+</html>

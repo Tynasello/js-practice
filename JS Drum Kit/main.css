@@ -1,0 +1,101 @@
+
+/* CSS RESET  */
+/* ---------------- */
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* ---------------- */
+
+/*
+----------------
+main css
+----------------
+*/
+
+body{
+  background: url(./bg.jpeg);
+  background-color: black;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Ubuntu', sans-serif;
+  height: 100%;
+}
+.container{
+  width: 80vw;
+  margin: 0 auto;
+  margin-top: 45vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#title{
+  color: white;
+  margin: 3rem 0;
+  font-size: 2em;
+  text-transform: uppercase;
+}
+#keys{
+  display: grid;
+  grid-gap: 1vw;
+  grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+  justify-content: center;
+  align-items: center;
+}
+.key {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  width: 8em;
+  padding: .7rem 0;
+  border-radius: 10%;
+  border: gray 2.5px solid;
+  transition: all, .05s;
+}
+.key-pressed{
+transform: scale(1.1);
+border-color: #3377FF;
+box-shadow: 0 0 1rem #3377FF;
+}
+kbd {
+  font-size: 4em;
+}
+
+.sound {
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #3377FF;
+}
+@media only screen and (max-width: 400px) {
+  body{
+    font-size: 10px;
+  }
+  .container{
+    top:30vh;
+    
+  }
+  h1{
+    text-align: left;
+  }
+}

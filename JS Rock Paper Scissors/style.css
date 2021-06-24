@@ -1,0 +1,125 @@
+
+/* CSS RESET  */
+/* ---------------- */
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+/* ---------------- */
+
+/*
+----------------
+main css
+----------------
+*/
+
+body{
+    background-color: ghostwhite;
+    font-family: 'Work Sans', sans-serif;
+}
+.container{
+    max-width: 80vw;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#title{
+    font-size: 2em;
+}
+#moves{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+}
+.move{
+    font-size: 5em;
+    margin: 0 2.5rem;
+    transition: .09s ease;
+}
+.move:hover{
+    text-shadow: 2px 2px 8px gray;
+}
+.move-pressed{
+    transform: scale(1.1);
+    color: dodgerblue;
+    text-shadow: 2px 2px 8px dodgerblue;
+}
+
+#round-result{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px lightgray solid; */
+    text-align: center;
+    font-size: 1.1em;
+    display: flex;
+    width: 60vw;
+    height: 20vw;
+    border: 3px rgba(0,0,0,.15) solid;
+    box-shadow: 25px 25px rgba(0,0,0,.2);
+    transition: all .5s;
+}
+#round-result:hover{
+    box-shadow: 15px 15px rgba(0,0,0,.2);
+
+}
+.round-description-box{
+    margin: 3rem;
+    width: 50%;
+}
+.round-description-box h3{
+    font-size: 1.5em;
+}
+#computer-selection-icon{
+    margin-top: 2rem;
+    font-size: 4em;
+}
+#scores{
+    margin: 1rem 0;
+}
+#p-round-descrition{
+    margin: 1rem 0;
+}
+@media only screen and (max-width: 1340px) {
+    body{
+      font-size: 10px;
+    }
+    #round-result{
+        flex-direction: column;
+        height: auto;
+        width: auto;
+    }
+    .round-description-box{
+        margin: .5rem 0;
+    }
+    #computer-selection-icon{
+        margin-top: .5rem;
+        font-size: 4em;
+    }
+    
+  }
