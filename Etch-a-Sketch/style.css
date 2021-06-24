@@ -1,0 +1,32 @@
+/* CSS RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* STYLING */
+body {
+  height: 100vh;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  margin: 2rem 0;
+}
+#container {
+  display: grid;
+  background-color: grey;
+  grid-gap: 5px;
+  padding: 5px;
+  width: 40vw;
+  height: 40vw;
+}
+.gridEl {
+  background-color: hsl(0, 100%, 100%);
+}
