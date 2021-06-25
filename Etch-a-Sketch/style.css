@@ -21,7 +21,7 @@ body {
 }
 #container {
   display: grid;
-  background-color: grey;
+  background-color: slategray;
   grid-gap: 5px;
   padding: 5px;
   width: 40vw;

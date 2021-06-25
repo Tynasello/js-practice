@@ -7,9 +7,10 @@ Project idea is from the Odin Project Lessons.
 https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/etch-a-sketch-project
 ---*/
 
-// Base width and hue of grid
+// Base width, hue of grid and last changed index
 const baseWidth = 16;
 let hue = 0;
+let lastChanged;
 
 // GRID
 // Create new div called container which will be our grid elements container
@@ -55,7 +56,9 @@ function changeColor(e) {
   const currX = e.x;
   const currY = e.y;
   // For each child in container -> the grid elements -> get there x and y positions aswell as their height and widths
-  container.childNodes.forEach((gridEl) => {
+  container.childNodes.forEach((gridEl, i) => {
+    // Make sure the last changed index is not the same as the current. Prevents color change when moving over same square
+    if (lastChanged == i) return;
     gridElCoords = gridEl.getBoundingClientRect();
     x = gridElCoords.x;
     y = gridElCoords.y;
@@ -65,7 +68,9 @@ function changeColor(e) {
     if (currX >= x && currY >= y && currX <= x + width && currY <= y + height) {
       // Update color using hsl and incriment hue by some number to traverse all colors
       gridEl.style.backgroundColor = `hsl(${hue},100%,50%)`;
-      hue += 3;
+      hue += 5;
+      // Update last changed index
+      lastChanged = i;
     }
   });
 }
