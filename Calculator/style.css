@@ -1,0 +1,83 @@
+/* CSS RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* STYLING */
+body {
+  font-family: "Open Sans", sans-serif;
+  background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+#calculator {
+  width: 320px;
+  height: 520px;
+  background-color: lightgray;
+  border-radius: 2rem;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+#display {
+  height: 120px;
+}
+#input {
+  text-align: right;
+  height: 20px;
+  margin: 0 2rem;
+  padding-top: 2rem;
+  font-size: 1rem;
+  color: #21618c;
+}
+#output {
+  text-align: right;
+  height: 30px;
+  margin: 0 2rem;
+  padding-top: 2rem;
+  font-size: 2rem;
+  color: #3498db;
+}
+#buttonsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 350px;
+  grid-gap: 10px;
+  margin: 20px;
+}
+.button {
+  border-radius: 50%;
+  border-width: 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #ccd1d1;
+  transform: scale(1.1);
+  transition: all 0.1s ease-in;
+}
+#equal {
+  border-radius: 5rem;
+  grid-column: 3 / 5;
+}
+#equal:hover {
+  background-color: #2ecc71;
+}
+#clearAll:hover {
+  background-color: #e74c3c;
+}
+#divide:hover {
+  background-color: #f4d03f;
+}
+#multiply:hover {
+  background-color: #9b59b6;
+}
+#addition:hover {
+  background-color: #3498db;
+}
+#subtract:hover {
+  background-color: #dc7633;
+}
