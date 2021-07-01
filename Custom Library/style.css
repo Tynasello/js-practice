@@ -1,0 +1,169 @@
+/* CSS RESET */
+::placeholder {
+  color: grey;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* STYLING */
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  background: #2e4053;
+}
+header {
+  background: #5dade2;
+}
+#title {
+  text-align: center;
+  padding: 3rem;
+}
+#books {
+  max-width: 70vw;
+  margin: 3rem auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+}
+.book {
+  background-color: #e5e7e9;
+  border-radius: 0.8rem;
+}
+.book-container {
+  margin: 2rem;
+  min-width: 200px;
+}
+.book-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.bookmark {
+  position: relative;
+  height: 14px;
+  width: 10px;
+  padding: 0px;
+  right: 10px;
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+  border-bottom: 5px solid transparent;
+}
+.book-info p {
+  margin: 1rem 0;
+}
+.book-footer {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/*---
+
+TOGGLE SWITCHES
+
+---*/
+
+/* REMOVE AND ADD BOOK BUTTONS  */
+.remove {
+  margin-top: 1rem;
+  width: 52px;
+  height: 30px;
+  cursor: pointer;
+}
+.remove:hover {
+  transform: scale(1.3);
+  transition: transform 0.2s ease-in-out;
+}
+#add-button {
+  float: right;
+  margin: 3rem;
+  background: transparent;
+  border: none;
+}
+#add-button i {
+  font-size: 2rem;
+  padding: 1.4rem;
+  border-radius: 50%;
+  background: #5dade2;
+  color: #e5e7e9;
+}
+#add-button i:hover {
+  cursor: pointer;
+  background: #2471a3;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 
+
+ADD BOOK POP-UP
+
+*/
+
+#add-pop-up {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: scale(0);
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  min-width: 30vw;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  background: #e5e7e9;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+#add-pop-up.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+#add-pop-up-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0.5rem;
+}
+#add-pop-up-header h3 {
+  text-align: center;
+  margin-right: 1rem;
+}
+#add-pop-up-header p {
+  cursor: pointer;
+}
+#add-pop-up input {
+  border: 1px solid grey;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+#add-pop-up #confirm-btn {
+  cursor: pointer;
+  font-size: 2.5rem;
+  margin: 1rem auto;
+  color: #2e4053;
+}
+#add-pop-up #confirm-btn:hover {
+  color: #28b463;
+  transition: all 0.2s ease-in-out;
+}
+/* OVERLAY */
+#overlay {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  background: rgb(0, 0, 0, 0.5);
+}
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
