@@ -1,0 +1,184 @@
+/* CSS RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* STYLING */
+.btn {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.btn:hover {
+  transform: scale(1.2);
+}
+html,
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  color: #566573;
+}
+#page-container {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+#nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.8rem;
+  background-color: #eb984e;
+  font-size: 1.2rem;
+  color: #17202a;
+}
+#nav #add-task-button {
+  position: absolute;
+  right: 5rem;
+}
+#main {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+/* --- 
+SUBFOLDERS/PROJECTS 
+--- */
+
+#subfolders-container {
+  width: 20%;
+  min-width: 330px;
+  padding: 4rem;
+  background-color: #eaeded;
+}
+#subfolders-list li {
+  list-style: none;
+  padding: 0.6rem;
+}
+#projects-title {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#current-projects-list {
+  padding: 0.7rem 1rem;
+  transform: scale(0);
+  transform-origin: top left;
+  transition: transform 0.2s ease-out;
+}
+#add-project-btn {
+  display: flex;
+  align-items: center;
+}
+#add-project-btn i {
+  padding-right: 0.5rem;
+  font-size: 1.4rem;
+}
+
+/* ---
+TASKS 
+--- */
+
+#tasks-container {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 0;
+  width: 50%;
+  margin: 0 auto;
+}
+#tasks-of-subfolder {
+  font-size: 2rem;
+  padding: 1rem;
+}
+.task {
+  display: flex;
+  flex-direction: column;
+}
+.task-above {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #eaeded;
+}
+.task-right {
+  display: flex;
+}
+.task-right > * {
+  padding: 0 0.4rem;
+}
+.task-info-dropdown {
+  border-bottom: 1px solid #eaeded;
+  padding: 0.5rem;
+  display: none;
+}
+.task-info-dropdown > * {
+  width: 50%;
+  font-size: 0.8rem;
+}
+.task-info-dropdown > * > * {
+  padding: 0.2rem;
+}
+
+/* ---
+MODAL 
+--- */
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: #eaeded;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  min-width: 500px;
+  min-height: 300px;
+}
+.modal-container.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+#overlay {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  background: rgb(0, 0, 0, 0.5);
+}
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal-container {
+  display: flex;
+  flex-direction: column;
+}
+.modal-header {
+  color: #17202a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #eb984e;
+  padding: 1rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.task-modal-form {
+  display: flex;
+  font-size: 0.9rem;
+}
+.task-modal-form > * {
+  padding: 2rem;
+}
+.task-modal-form > * > * {
+  margin: 0.5rem 0;
+  padding: 0.4rem 0;
+}
+.task-modal-form input,
+.task-modal-form select {
+  color: #566573;
+}

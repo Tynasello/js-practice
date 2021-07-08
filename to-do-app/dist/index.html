@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>To-do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Favicon -->
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> -->
+    <!--  -->
+    <script
+      src="https://kit.fontawesome.com/4991e1abeb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="index.bundle.js"></script>
+  </head>
+  <body>
+    <div id="page-container">
+      <div id="nav">
+        <h3>To-Do ✓</h3>
+        <div id="add-task-button" class="btn">+</div>
+      </div>
+
+      <section id="main">
+        <div id="subfolders-container">
+          <ul id="subfolders-list">
+            <li>
+              <h3 id="all-tasks-title">
+                <i class="far fa-calendar-alt"></i> &nbsp&nbspAll Tasks
+              </h3>
+            </li>
+            <li>
+              <h3 id="tasks-today-title">
+                <i class="far fa-calendar-check"></i>&nbsp&nbsp Today
+              </h3>
+            </li>
+            <li>
+              <h3 id="tasks-week-title">
+                <i class="fas fa-calendar-week"></i> &nbsp This Week
+              </h3>
+            </li>
+            <li>
+              <h3 id="projects-title">
+                <div class="projects-icon-title">
+                  <i class="fas fa-project-diagram"></i> &nbsp Projects
+                </div>
+                <i class="fas fa-chevron-down btn"></i>
+              </h3>
+              <ul id="current-projects-list">
+                <li class="project">
+                  <h3>→ Laundry</h3>
+                </li>
+                <li class="project">
+                  <h3>→ Work</h3>
+                </li>
+                <li id="add-project-btn btn">
+                  <i class="fas fa-plus-circle"></i>
+                  <h3>Add Project</h3>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div id="tasks-container">
+          <h3 id="tasks-of-subfolder">All Tasks</h3>
+          <ul id="tasks-list">
+            <li class="task">
+              <div class="task-above">
+                <div class="task-left">
+                  <input
+                    type="checkbox"
+                    id="sometask"
+                    onclick="event.stopPropagation()"
+                  />
+                  <label> Some Task</label><br />
+                </div>
+                <div class="task-right">
+                  <i
+                    class="fas fa-edit task-edit-btn btn"
+                    onclick="event.stopPropagation()"
+                  ></i>
+                  <i
+                    class="fas fa-flag priority-flag"
+                    onclick="event.stopPropagation()"
+                  ></i>
+                  <i
+                    class="fas fa-trash-alt task-delete-btn btn"
+                    onclick="event.stopPropagation()"
+                  ></i>
+                </div>
+              </div>
+              <div class="task-info-dropdown">
+                <div class="task-info-dropdown-left">
+                  <h3>Name: Laundry</h3>
+                  <h3>Description: Wash and dry all clothes</h3>
+                </div>
+                <div class="task-info-dropdown-right">
+                  <h3>Project: Housekeeping</h3>
+                  <h3>Due Date: 07/21/21</h3>
+                  <h3>Priority Level: Low</h3>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <div id="overlay"></div>
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Add Task</h3>
+          <h3 class="close-modal btn">❌</h3>
+        </div>
+        <div class="task-modal-body">
+          <form class="task-modal-form">
+            <div class="task-modal-body-left">
+              <label for="name">Task name:</label><br />
+              <input type="text" id="task-title-name-input" /><br />
+              <label for="description">Description:</label><br />
+              <textarea
+                name="description"
+                id="description"
+                cols="25"
+                rows="5"
+              ></textarea
+              ><br />
+            </div>
+            <div class="task-modal-body-right">
+              <label for="project">Project:</label><br />
+              <input type="text" id="task-project-input" name="project" /><br />
+
+              <label for="due-date">Due date:</label><br />
+              <input
+                type="date"
+                id="task-due-date-input"
+                name="due-date"
+              /><br />
+
+              <label for="priority">Priority:</label><br />
+              <select name="priority" id="task-priority-input">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+              <br />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
