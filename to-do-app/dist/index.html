@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
     <!-- Favicon -->
-    <!-- <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"> -->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
     <!--  -->
     <script
       src="https://kit.fontawesome.com/4991e1abeb.js"
@@ -60,7 +60,7 @@
                 <li class="project">
                   <h3>→ Work</h3>
                 </li>
-                <li id="add-project-btn btn">
+                <li id="add-subfolder-btn" class="btn">
                   <i class="fas fa-plus-circle"></i>
                   <h3>Add Project</h3>
                 </li>
@@ -78,6 +78,7 @@
                     type="checkbox"
                     id="sometask"
                     onclick="event.stopPropagation()"
+                    checked
                   />
                   <label> Some Task</label><br />
                 </div>
@@ -112,16 +113,17 @@
         </div>
       </section>
       <div id="overlay"></div>
-      <div class="modal-container">
+
+      <div id="task-modal" class="modal-container">
         <div class="modal-header">
-          <h3>Add Task</h3>
+          <h3 class="modal-title">Add Task</h3>
           <h3 class="close-modal btn">❌</h3>
         </div>
         <div class="task-modal-body">
           <form class="task-modal-form">
             <div class="task-modal-body-left">
               <label for="name">Task name:</label><br />
-              <input type="text" id="task-title-name-input" /><br />
+              <input type="text" id="task-title-name-input" name="name" /><br />
               <label for="description">Description:</label><br />
               <textarea
                 name="description"
@@ -151,6 +153,27 @@
               <br />
             </div>
           </form>
+        </div>
+        <div id="confirm-task" class="modal-footer">
+          <h3 class="btn enter-exit-button confirm-btn">Add Task</h3>
+        </div>
+      </div>
+
+      <div id="subfolder-modal" class="modal-container">
+        <div class="modal-header">
+          <h3 class="modal-title">Add Project</h3>
+          <h3 class="close-modal btn">❌</h3>
+        </div>
+        <div class="subfolder-modal-body">
+          <label for="subfolder-name">Project name:</label><br />
+          <input
+            type="text"
+            id="subfolder-title-name-input"
+            name="subfolder-name"
+          /><br />
+        </div>
+        <div id="confirm-subfolder" class="modal-footer">
+          <h3 class="btn enter-exit-button confirm-btn">Add Project</h3>
         </div>
       </div>
     </div>

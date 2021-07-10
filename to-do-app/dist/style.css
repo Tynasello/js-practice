@@ -12,8 +12,21 @@
   transition: transform 0.2s ease-in-out;
 }
 .btn:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
+.enter-exit-button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.7rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.confirm-btn {
+  color: white;
+  background-color: #28b463;
+}
+
 html,
 body {
   height: 100%;
@@ -69,11 +82,12 @@ SUBFOLDERS/PROJECTS
   transform-origin: top left;
   transition: transform 0.2s ease-out;
 }
-#add-project-btn {
+#add-subfolder-btn {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
-#add-project-btn i {
+#add-subfolder-btn i {
   padding-right: 0.5rem;
   font-size: 1.4rem;
 }
@@ -135,6 +149,8 @@ MODAL
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   min-width: 500px;
   min-height: 300px;
+  display: flex;
+  flex-direction: column;
 }
 .modal-container.active {
   transform: translate(-50%, -50%) scale(1);
@@ -152,10 +168,6 @@ MODAL
 #overlay.active {
   opacity: 1;
   pointer-events: all;
-}
-.modal-container {
-  display: flex;
-  flex-direction: column;
 }
 .modal-header {
   color: #17202a;
@@ -181,4 +193,27 @@ MODAL
 .task-modal-form input,
 .task-modal-form select {
   color: #566573;
+}
+/* ADD PROJECT MODAL */
+#subfolder-modal {
+  min-width: 500px;
+  min-height: 170px;
+}
+
+.subfolder-modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  padding: 2rem;
+}
+.subfolder-modal-body > input {
+  padding: 0.5rem;
+}
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
 }
