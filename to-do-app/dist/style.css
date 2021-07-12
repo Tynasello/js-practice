@@ -91,6 +91,9 @@ SUBFOLDERS/PROJECTS
   padding-right: 0.5rem;
   font-size: 1.4rem;
 }
+.active-subfolder {
+  color: #eb984e;
+}
 
 /* ---
 TASKS 
@@ -134,6 +137,11 @@ TASKS
 }
 .task-info-dropdown > * > * {
   padding: 0.2rem;
+}
+
+.checked {
+  text-decoration: line-through;
+  color: #b3b6b7;
 }
 
 /* ---

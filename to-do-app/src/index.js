@@ -4,10 +4,16 @@ const projectsList = document.getElementById("current-projects-list");
 projectsBtn.addEventListener("click", projectsDropdown);
 
 function projectsDropdown() {
-  if (projectsList.style.transform == "scale(1)") {
-    projectsList.style.transform = "scale(0)";
-  } else {
+  if (projectsList.style.transform == "scale(0)") {
     projectsList.style.transform = "scale(1)";
+    for (let i = 1; i < projectsList.childNodes.length; i++) {
+      projectsList.childNodes[i].style.display = "flex";
+    }
+  } else {
+    projectsList.style.transform = "scale(0)";
+    for (let i = 1; i < projectsList.childNodes.length; i++) {
+      projectsList.childNodes[i].style.display = "none";
+    }
   }
 }
 
@@ -17,16 +23,16 @@ function projectsDropdown() {
 
 //PROJECT DESC DROPDOWN ----------------------
 
-// const task = document.querySelector(".task");
-// task.addEventListener("click", taskClicked);
+const task = document.querySelector(".task");
+task.addEventListener("click", taskClicked);
 
-// function taskClicked() {
-//   if (this.querySelector(".task-info-dropdown").style.display == "flex") {
-//     this.querySelector(".task-info-dropdown").style.display = "none";
-//   } else {
-//     this.querySelector(".task-info-dropdown").style.display = "flex";
-//   }
-// }
+function taskClicked() {
+  if (this.querySelector(".task-info-dropdown").style.display == "flex") {
+    this.querySelector(".task-info-dropdown").style.display = "none";
+  } else {
+    this.querySelector(".task-info-dropdown").style.display = "flex";
+  }
+}
 
 // EDIT TASK --------------------------------
 
@@ -40,60 +46,81 @@ function projectsDropdown() {
 //   taskConfirmBtn.textContent = "Confirm Edit"
 // }
 
-//
-
 // ----------------------------------------------------------------
 const overlay = document.getElementById("overlay");
 
 let subfolders = JSON.parse(localStorage.getItem("subfolders")) || [];
-let selectedSubfolder = localStorage.getItem("selectedSubfolder");
+let selectedSubfolderId = localStorage.getItem("selectedSubfolderId");
+
 /*----- 
 HELPER FUNCTIONS
 -----*/
 function removeFromDOM(element) {
-  element.textContent = "";
+  element.innerHTML = " ";
 }
 
 /*----- 
 UPDATING DOM / LOCAL STORAGE 
 -----*/
+
 const projectListContainer = document.getElementById("current-projects-list");
 const activeProjectHeader = document.getElementById("tasks-of-subfolder");
 const tasksContainer = document.getElementById("tasks-list");
 
-function updateDOMStorage() {
+function updateDomStorage() {
   updateDOM();
   localStorage.setItem("subfolders", JSON.stringify(subfolders));
-  localStorage.setItem("selectedSubfolder", selectedSubfolder);
+  localStorage.setItem("selectedSubfolderId", selectedSubfolderId);
 }
 
 function updateDOM() {
   removeFromDOM(projectListContainer);
-  displaySubfolders();
-  activeProjectHeader.textContent = `${selectedSubfolder.name}`;
   removeFromDOM(tasksContainer);
-  displayTasks(selectedSubfolder);
+  displaySubfolders();
+  projectsDropdown();
+  projectsDropdown();
+
+  const selectedSubfolder = subfolders.find(
+    (subfolder) => subfolder.id === selectedSubfolderId
+  );
+  if (selectedSubfolder != null) {
+    activeProjectHeader.textContent = `${selectedSubfolder.name}`;
+    displayTasks(selectedSubfolder);
+  } else {
+    activeProjectHeader.textContent = "";
+  }
 }
 
 function displaySubfolders() {
-  subfolders.forEach(subfolder, () => {
+  Object.keys(subfolders).forEach((key) => {
+    const value = subfolders[key];
     const li = document.createElement("li");
     li.classList.add("project");
-    li.id = subfolder.id;
-    if (li.id == selectedSubfolder.id) {
-      li.classList.add("active-subfolder");
-    }
+    li.classList.add("btn");
+    li.id = value.id;
     const h3 = document.createElement("h3");
-    h3.textContent = `→ ${subfolder.name}`;
+    h3.textContent = `-> ${value.name}`;
     li.appendChild(h3);
     projectListContainer.append(li);
+    li.style.display = "none";
+    li.addEventListener("click", () => {
+      selectedSubfolderId = li.id;
+      localStorage.setItem("selectedSubfolderId", selectedSubfolderId);
+      updateDOM();
+    });
   });
 }
 
 function displayTasks(subfolder) {
-  subfolder.forEach(task, () => {
+  subfolder.tasks.forEach((task) => {
     const li = document.createElement("li");
     li.classList.add("task");
+    li.id = `${task.id}`;
+    if (task.complete == "checked") {
+      li.classList.add("checked");
+    } else {
+      li.classList.remove("checked");
+    }
     li.innerHTML = `
     <div class="task-above">
       <div class="task-left">
@@ -131,9 +158,10 @@ function displayTasks(subfolder) {
         <h3>Priority Level: ${task.priority}</h3>
       </div>
     </div>`;
-    let completedTaskBtn = li.querySelector(`input#${task.id}`);
+    let completedTaskBtn = li.querySelector(`input`);
     let deleteTaskBtn = li.querySelector("i.task-delete-btn");
-    addTaskFunctionality(task, completedTaskBtn, deleteTaskBtn);
+    addTaskFunctionality(li, completedTaskBtn, deleteTaskBtn);
+    tasksContainer.appendChild(li);
   });
 }
 /*----- 
@@ -141,28 +169,47 @@ TASK FUNCTIONALITY
 -----*/
 
 function addTaskFunctionality(task, completedTaskBtn, deleteTaskBtn) {
-  completedTaskBtn.addEventListener("click", taskCompleted(task));
-  deleteTaskBtn.addEventListener("click", removeTask(task));
+  task.querySelector(".task-above").addEventListener("click", () => {
+    if (task.querySelector(".task-info-dropdown").style.display == "flex") {
+      task.querySelector(".task-info-dropdown").style.display = "none";
+    } else {
+      task.querySelector(".task-info-dropdown").style.display = "flex";
+    }
+  });
+  completedTaskBtn.addEventListener("click", () => {
+    task.classList.toggle("checked");
+    const updatedTask = subfolders
+      .find((subfolder) => subfolder.id === selectedSubfolderId)
+      .tasks.find((t) => t.id === task.querySelector("input").id);
+    if (updatedTask.complete == " ") {
+      updatedTask.complete = "checked";
+    } else {
+      updatedTask.complete = " ";
+    }
+    localStorage.setItem("subfolders", JSON.stringify(subfolders));
+    subfolders = JSON.parse(localStorage.getItem("subfolders")) || [];
+  });
+  deleteTaskBtn.addEventListener("click", () => {
+    task.style.display = "none";
+    const subfolderOfTask = subfolders.find(
+      (subfolder) => subfolder.id === selectedSubfolderId
+    );
+    const removeIndex = subfolderOfTask.tasks.indexOf(
+      subfolderOfTask.tasks.find((t) => t.id === task.querySelector("input").id)
+    );
+    subfolderOfTask.tasks.splice(removeIndex, 1);
+    localStorage.setItem("subfolders", JSON.stringify(subfolders));
+    subfolders = JSON.parse(localStorage.getItem("subfolders")) || [];
+  });
 }
-function taskCompleted(task) {
-  const taskLabel = task.querySelector("label");
-  if (taskLabel.style["text-decoration"] == "line-through") {
-    taskLabel.style["text-decoration"] = "none";
-    task.style.color = "#566573";
-  } else {
-    taskLabel.style["text-decoration"] = "line-through";
-    task.style.color = "#B3B6B7";
-  }
-}
-function removeTask(task) {
-  tasksContainer.removeChild(task);
-}
+
 /*----- 
 PROJECT / SUBFOLDER --- CREATION / UPDATE
 -----*/
 const subfolderModal = document.getElementById("subfolder-modal");
 const addProjectBtn = document.getElementById("add-subfolder-btn");
 const submitProjectBtn = document.getElementById("confirm-subfolder");
+const subfolderContainer = document.getElementById("subfolders-list");
 addProjectBtn.addEventListener("click", projectPopUp);
 function projectPopUp() {
   overlay.classList.add("active");
@@ -178,9 +225,9 @@ submitProjectBtn.addEventListener("click", () => {
     name: newSubfolderName,
     tasks: [],
   };
-  // subfolders.push(newSubfolder);
+  subfolders.push(newSubfolder);
   removeOverlay();
-  // updateDomStorage();
+  updateDomStorage();
 });
 
 /*----- 
@@ -207,12 +254,14 @@ submitTaskBtn.addEventListener("click", () => {
     projectUnder: taskModal.querySelector("input#task-project-input").value,
     dueDate: taskModal.querySelector("input#task-due-date-input").value,
     priority: taskModal.querySelector("select#task-priority-input").value,
-    complete: "",
+    complete: " ",
   };
-  let selectedSubfolder = localStorage.getItem("selectedSubfolder");
-  // selectedSubfolder.tasks.push(newTask);
+  const selectedSubfolder = subfolders.find(
+    (subfolder) => subfolder.id === selectedSubfolderId
+  );
+  selectedSubfolder.tasks.push(newTask);
   removeOverlay();
-  // updateDOMStorage();
+  updateDomStorage();
 });
 
 /*----- 
@@ -229,3 +278,7 @@ function removeOverlay() {
   taskModal.classList.remove("active");
   subfolderModal.classList.remove("active");
 }
+
+/*----- 
+-----*/
+updateDOM();

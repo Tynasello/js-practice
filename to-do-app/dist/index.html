@@ -32,39 +32,32 @@
         <div id="subfolders-container">
           <ul id="subfolders-list">
             <li>
-              <h3 id="all-tasks-title">
+              <h3 id="all-tasks-title" class="btn">
                 <i class="far fa-calendar-alt"></i> &nbsp&nbspAll Tasks
               </h3>
             </li>
             <li>
-              <h3 id="tasks-today-title">
+              <h3 id="tasks-today-title" class="btn">
                 <i class="far fa-calendar-check"></i>&nbsp&nbsp Today
               </h3>
             </li>
             <li>
-              <h3 id="tasks-week-title">
+              <h3 id="tasks-week-title" class="btn">
                 <i class="fas fa-calendar-week"></i> &nbsp This Week
               </h3>
             </li>
             <li>
-              <h3 id="projects-title">
+              <h3 id="projects-title" class="btn">
                 <div class="projects-icon-title">
                   <i class="fas fa-project-diagram"></i> &nbsp Projects
                 </div>
                 <i class="fas fa-chevron-down btn"></i>
               </h3>
-              <ul id="current-projects-list">
-                <li class="project">
-                  <h3>→ Laundry</h3>
-                </li>
-                <li class="project">
-                  <h3>→ Work</h3>
-                </li>
-                <li id="add-subfolder-btn" class="btn">
-                  <i class="fas fa-plus-circle"></i>
-                  <h3>Add Project</h3>
-                </li>
-              </ul>
+              <ul id="current-projects-list"></ul>
+              <div id="add-subfolder-btn" class="btn">
+                <i class="fas fa-plus-circle"></i>
+                <h3>Add Project</h3>
+              </div>
             </li>
           </ul>
         </div>
@@ -78,7 +71,6 @@
                     type="checkbox"
                     id="sometask"
                     onclick="event.stopPropagation()"
-                    checked
                   />
                   <label> Some Task</label><br />
                 </div>
