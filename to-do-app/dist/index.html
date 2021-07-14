@@ -27,21 +27,20 @@
         <h3>To-Do ✓</h3>
         <div id="add-task-button" class="btn">+</div>
       </div>
-
       <section id="main">
         <div id="subfolders-container">
           <ul id="subfolders-list">
-            <li>
+            <li id="all-tasks">
               <h3 id="all-tasks-title" class="btn">
                 <i class="far fa-calendar-alt"></i> &nbsp&nbspAll Tasks
               </h3>
             </li>
-            <li>
+            <li id="tasks-today">
               <h3 id="tasks-today-title" class="btn">
                 <i class="far fa-calendar-check"></i>&nbsp&nbsp Today
               </h3>
             </li>
-            <li>
+            <li id="tasks-week">
               <h3 id="tasks-week-title" class="btn">
                 <i class="fas fa-calendar-week"></i> &nbsp This Week
               </h3>
@@ -104,6 +103,7 @@
           </ul>
         </div>
       </section>
+
       <div id="overlay"></div>
 
       <div id="task-modal" class="modal-container">
@@ -113,36 +113,58 @@
         </div>
         <div class="task-modal-body">
           <form class="task-modal-form">
-            <div class="task-modal-body-left">
-              <label for="name">Task name:</label><br />
-              <input type="text" id="task-title-name-input" name="name" /><br />
-              <label for="description">Description:</label><br />
+            <div id="form-item-name" class="form-item">
+              <label for="name">Task name:</label>
+
+              <input
+                type="text"
+                id="task-title-name-input"
+                name="name"
+                class="form-input"
+              />
+
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <p class="error-msg">Error</p>
+            </div>
+
+            <div id="form-item-description" class="form-item">
+              <label for="description">Description:</label>
               <textarea
                 name="description"
                 id="description"
-                cols="25"
+                cols="15"
                 rows="5"
-              ></textarea
-              ><br />
+                class="form-input"
+              ></textarea>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <p class="error-msg">Error</p>
             </div>
-            <div class="task-modal-body-right">
-              <label for="project">Project:</label><br />
-              <input type="text" id="task-project-input" name="project" /><br />
 
-              <label for="due-date">Due date:</label><br />
+            <div id="form-item-due-date" class="form-item">
+              <label for="due-date">Due date:</label>
               <input
                 type="date"
                 id="task-due-date-input"
                 name="due-date"
-              /><br />
+                class="form-input"
+              />
+              <p class="error-msg">Error</p>
+            </div>
 
-              <label for="priority">Priority:</label><br />
-              <select name="priority" id="task-priority-input">
+            <div id="form-item-priority" class="form-item">
+              <label for="priority">Priority:</label>
+              <select
+                name="priority"
+                id="task-priority-input"
+                class="form-input"
+              >
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
               </select>
-              <br />
+              <p class="error-msg">Error</p>
             </div>
           </form>
         </div>

@@ -26,7 +26,9 @@
   color: white;
   background-color: #28b463;
 }
-
+:root {
+  --main-color: #a569bd;
+}
 html,
 body {
   height: 100%;
@@ -42,8 +44,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.8rem;
-  background-color: #eb984e;
+  padding: 1.3rem;
+  background-color: var(--main-color);
   font-size: 1.2rem;
   color: #17202a;
 }
@@ -92,7 +94,7 @@ SUBFOLDERS/PROJECTS
   font-size: 1.4rem;
 }
 .active-subfolder {
-  color: #eb984e;
+  color: var(--main-color);
 }
 
 /* ---
@@ -107,8 +109,14 @@ TASKS
   margin: 0 auto;
 }
 #tasks-of-subfolder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 2rem;
   padding: 1rem;
+}
+#tasks-of-subfolder i {
+  font-size: 1.5rem;
 }
 .task {
   display: flex;
@@ -138,7 +146,6 @@ TASKS
 .task-info-dropdown > * > * {
   padding: 0.2rem;
 }
-
 .checked {
   text-decoration: line-through;
   color: #b3b6b7;
@@ -153,7 +160,7 @@ MODAL
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   background: #eaeded;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   min-width: 500px;
   min-height: 300px;
@@ -182,25 +189,68 @@ MODAL
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #eb984e;
+  background: var(--main-color);
   padding: 1rem;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+#task-modal {
+  min-width: 450px;
 }
 .task-modal-form {
   display: flex;
+  flex-direction: column;
+  margin: 2rem 4rem;
   font-size: 0.9rem;
 }
-.task-modal-form > * {
-  padding: 2rem;
+.form-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
-.task-modal-form > * > * {
-  margin: 0.5rem 0;
-  padding: 0.4rem 0;
+.form-item > * {
+  padding: 0.5rem;
+}
+.task-modal-form label {
+  padding: 0;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.form-item i {
+  position: absolute;
+  transform: scale(0);
+  top: 2.7rem;
+  right: 0;
+}
+.form-item .error-msg {
+  font-size: 0.7rem;
+  padding: 0;
+  padding-top: 0.4rem;
+  transform: scale(0);
 }
 .task-modal-form input,
 .task-modal-form select {
   color: #566573;
+}
+.form-input {
+  border: 1px solid #99a3a4;
+  border-radius: 3px;
+}
+
+.validation-pass .form-input {
+  border-color: #239b56;
+}
+.validation-fail .form-input {
+  border-color: #ec7063;
+}
+.validation-pass .fa-check-circle {
+  color: #239b56;
+  transform: scale(1);
+}
+.validation-fail .fa-exclamation-circle,
+.validation-fail .error-msg {
+  color: #ec7063;
+  transform: scale(1);
 }
 /* ADD PROJECT MODAL */
 #subfolder-modal {
