@@ -207,11 +207,17 @@ function addTaskFunctionality(task, completedTaskBtn, deleteTaskBtn, editBtn) {
     const updatedTask = subfolders
       .find((subfolder) => subfolder.id === selectedSubfolderId)
       .tasks.find((t) => t.id === task.querySelector("input").id);
-    if (updatedTask.complete == " ") {
-      updatedTask.complete = "checked";
-    } else {
-      updatedTask.complete = " ";
-    }
+    subfolders.forEach((subfolder) => {
+      subfolder.tasks.forEach((task) => {
+        if (task.id == updatedTask.id) {
+          if (task.complete == " ") {
+            task.complete = "checked";
+          } else {
+            task.complete = " ";
+          }
+        }
+      });
+    });
     localStorage.setItem("subfolders", JSON.stringify(subfolders));
     subfolders = JSON.parse(localStorage.getItem("subfolders")) || [];
   });
@@ -355,7 +361,6 @@ submitTaskBtn.addEventListener("click", (e) => {
   if (!checkInputs(nameVal, dueDateVal)) return;
   let newTask = {};
   if (modalTitle.textContent == "Edit Task") {
-    let editedTasks = [];
     subfolders.forEach((subfolder) => {
       subfolder.tasks.forEach((task) => {
         if (task.id == editedTask.id) {

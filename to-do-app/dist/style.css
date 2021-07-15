@@ -6,7 +6,10 @@
   padding: 0;
   margin: 0;
 }
-/* STYLING */
+
+/* --- 
+CONFIRM / EXIT BUTTONS
+--- */
 .btn {
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
@@ -26,6 +29,7 @@
   color: white;
   background-color: #28b463;
 }
+/* STYLING */
 :root {
   --main-color: #a569bd;
 }
@@ -152,7 +156,7 @@ TASKS
 }
 
 /* ---
-MODAL 
+MODALS 
 --- */
 .modal-container {
   position: fixed;
@@ -194,6 +198,7 @@ MODAL
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+/* MODAL FOR ADDING TASK*/
 #task-modal {
   min-width: 450px;
 }
@@ -252,7 +257,7 @@ MODAL
   color: #ec7063;
   transform: scale(1);
 }
-/* ADD PROJECT MODAL */
+/* MODAL FOR ADDING PROJECT*/
 #subfolder-modal {
   min-width: 500px;
   min-height: 170px;
