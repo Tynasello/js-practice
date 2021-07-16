@@ -4,15 +4,13 @@
 
 #
 
-<p> <img src = "[to-do-demo.gif](https://github.com/Tynasello/js-practice/blob/master/to-do-app/dist/to-do-demo.gif)" alt = "gif"/> </p>
+![demo](dist/to-do-demo.gif)
 
 Add custom projects and tasks with their own descriptions, due dates, and priority levels. Filter through your tasks via project subfolders, or the already created All Tasks, Today, and This Week subfolders which automatically contain your tasks when added.
 
 Custom subfolders and tasks are stored locally so user inputs are not lost when closing or refreshing browser
 
 ## Feautures
-
-#
 
 ### Main Panel
 
@@ -30,8 +28,6 @@ When the edit button for a task is clicked, a pop-up appears where the users can
 The side panel contains three static subfolder: the All Tasks, Today, and This Week subfolders. There is a subfolder for custom projects which the user can add by clicking the add project button.
 
 ## Installation
-
-#
 
 To Work on this project:
 
@@ -57,14 +53,10 @@ npm run build
 
 ## Built With
 
-#
-
 - Vanilla JavaScript
 - HTML5
 - CSS3
 
 ## Acknowledgments
-
-#
 
 Inspiration for this project was found while following the tutorials on https://www.theodinproject.com/dashboard and advancing to the https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/todo-list section
